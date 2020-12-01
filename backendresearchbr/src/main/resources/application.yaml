@@ -1,0 +1,61 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/backendresearchbr
+    username: root
+    password: 349852
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+  jpa:
+    show_sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      jdbc:
+        lob:
+          non_contextual_creation: true
+
+logging:
+  file:
+    name: logs/researchbr.log
+  pattern:
+    file: "%d %-5level [%thread] %logger{0} : %msg%n"
+  level:
+    org.springframework.web: WARN
+    br.com.dbccompany.colaborebackend.Controller: ERROR
+    org.hibernate: WARN
+
+---
+
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    initialization-mode: never
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+    h2:
+      console:
+        enabled: true
+        path: /console
