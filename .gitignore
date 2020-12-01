@@ -1,0 +1,4 @@
+*.class
+*.ctxt
+node_modules/
+.vscode/
