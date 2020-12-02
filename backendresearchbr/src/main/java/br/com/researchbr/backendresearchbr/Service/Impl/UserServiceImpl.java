@@ -1,8 +1,10 @@
 package br.com.researchbr.backendresearchbr.Service.Impl;
 
 import br.com.researchbr.backendresearchbr.DTO.UserDto;
+import br.com.researchbr.backendresearchbr.Entity.ProjectEntity;
 import br.com.researchbr.backendresearchbr.Entity.RoleEntity;
 import br.com.researchbr.backendresearchbr.Entity.UserEntity;
+import br.com.researchbr.backendresearchbr.Repository.ProjectRepository;
 import br.com.researchbr.backendresearchbr.Repository.RoleRepository;
 import br.com.researchbr.backendresearchbr.Repository.UserRepository;
 import br.com.researchbr.backendresearchbr.Service.UserService;
@@ -35,6 +37,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -106,30 +111,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Override
     public UserDto save(UserDto userDto) {
         try{
-            UserEntity userWithDuplicateUsername = userRepository.findByUsername(userDto.getUsername());
-            if(userWithDuplicateUsername != null && userDto.getId() != userWithDuplicateUsername.getId()) {
-                log.error(String.format("Duplicated username %", userDto.getUsername()));
-                throw new RuntimeException("Duplicated username.");
-            }
-            UserEntity userWithDuplicateEmail = userRepository.findByEmail(userDto.getEmail());
-            if(userWithDuplicateEmail != null && userDto.getId() != userWithDuplicateEmail.getId()) {
-                log.error(String.format("Duplicated email %", userDto.getEmail()));
-                throw new RuntimeException("Duplicated email.");
-            }
-            UserEntity userWithDuplicateCpf = userRepository.findByCpf(userDto.getCpf());
-            if(userWithDuplicateCpf != null && userDto.getId() != userWithDuplicateCpf.getId()) {
-                log.error(String.format("Duplicated CPF %", userDto.getEmail()));
-                throw new RuntimeException("Duplicated CPF.");
-            }
-
-            UserEntity user = new UserEntity();
-            user.setEmail(userDto.getEmail());
-            user.setUsername(userDto.getUsername());
-            user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-            user.setCpf(userDto.getCpf());
-            RoleEntity role = roleRepository.find(userDto.getRoleName());
-            user.setRole(role);
-
+            checkDuplicatedUserInfo(userDto);
+            UserEntity user = createUserFromDto(userDto);
             UserDto newDto = new UserDto(userRepository.save(user));
             return newDto;
         } catch (Exception e) {
@@ -138,5 +121,42 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         }
     }
 
+    private void checkDuplicatedUserInfo(UserDto userDto) {
+        UserEntity userWithDuplicateUsername = userRepository.findByUsername(userDto.getUsername());
+        if(userWithDuplicateUsername != null && userDto.getId() != userWithDuplicateUsername.getId()) {
+            log.error(String.format("Duplicated username %", userDto.getUsername()));
+            throw new RuntimeException("Duplicated username.");
+        }
+        UserEntity userWithDuplicateEmail = userRepository.findByEmail(userDto.getEmail());
+        if(userWithDuplicateEmail != null && userDto.getId() != userWithDuplicateEmail.getId()) {
+            log.error(String.format("Duplicated email %", userDto.getEmail()));
+            throw new RuntimeException("Duplicated email.");
+        }
+        UserEntity userWithDuplicateCpf = userRepository.findByCpf(userDto.getCpf());
+        if(userWithDuplicateCpf != null && userDto.getId() != userWithDuplicateCpf.getId()) {
+            log.error(String.format("Duplicated CPF %", userDto.getEmail()));
+            throw new RuntimeException("Duplicated CPF.");
+        }
+    }
+
+    private UserEntity createUserFromDto(UserDto userDto) {
+        UserEntity user = new UserEntity();
+        user.setEmail(userDto.getEmail());
+        user.setUsername(userDto.getUsername());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setCpf(userDto.getCpf());
+        RoleEntity role = roleRepository.find(userDto.getRoleName());
+        user.setRole(role);
+
+        if(userDto.getProjectsIds() != null) {
+            Set<ProjectEntity> projects = new HashSet<>();
+            for(int i = 0; i < userDto.getProjectsIds().size(); i++){
+                projects.add(projectRepository.findById(userDto.getProjectsIds().get(i)).get());
+            }
+            user.setProjects(projects);
+        }
+
+        return user;
+    }
 
 }

@@ -1,8 +1,11 @@
 package br.com.researchbr.backendresearchbr.DTO;
 
 import br.com.researchbr.backendresearchbr.Entity.RoleEntity;
-import br.com.researchbr.backendresearchbr.Entity.RoleType;
 import br.com.researchbr.backendresearchbr.Entity.UserEntity;
+import br.com.researchbr.backendresearchbr.Entity.ProjectEntity;
+
+import java.util.List;
+import java.util.Set;
 
 public class UserDto {
     private long id;
@@ -12,7 +15,8 @@ public class UserDto {
     private String cpf;
     private RoleEntity role;
     private String roleName;
-
+    private Set<ProjectEntity> projects;
+    private List<Long> projectsIds;
 
     public UserDto(){}
 
@@ -22,7 +26,8 @@ public class UserDto {
         this.password = user.getPassword();
         this.email = user.getEmail();
         this.cpf = user.getCpf();
-        this.role = user.toUserDto().role;
+        this.role = user.getRole();
+        this.projects = user.getProjects();
     }
 
     public long getId() {
@@ -79,5 +84,21 @@ public class UserDto {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public Set<ProjectEntity> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<ProjectEntity> projects) {
+        this.projects = projects;
+    }
+
+    public List<Long> getProjectsIds() {
+        return projectsIds;
+    }
+
+    public void setProjectsIds(List<Long> projectsIds) {
+        this.projectsIds = projectsIds;
     }
 }

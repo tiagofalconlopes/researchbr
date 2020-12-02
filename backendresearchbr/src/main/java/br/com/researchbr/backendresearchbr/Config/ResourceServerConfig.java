@@ -27,8 +27,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
 				.antMatchers(HttpMethod.POST,"/api/users/new").permitAll()
-				.antMatchers(HttpMethod.GET,"/api/users/user/{username}").hasAnyRole("PRINCIPAL")
-				.antMatchers(HttpMethod.GET,"/api/users/all").hasAnyRole("PRINCIPAL")
+				.antMatchers(HttpMethod.GET,"/api/users/user/{username}").hasRole("PRINCIPAL")
+				.antMatchers(HttpMethod.GET,"/api/users/all").hasRole("PRINCIPAL")
+				.antMatchers(HttpMethod.POST,"/api/projects/new").hasRole("PRINCIPAL")
+				.antMatchers(HttpMethod.GET,"/api/projects/all").hasAnyRole("PRINCIPAL", "ASSISTANT")
 				//Descomentar as 4 linhas seguintes para realizar os testes do controller e comentar as 12 de cima
 //				.antMatchers(HttpMethod.POST,"/api/**").permitAll()
 //				.antMatchers(HttpMethod.GET,"/api/**").permitAll()

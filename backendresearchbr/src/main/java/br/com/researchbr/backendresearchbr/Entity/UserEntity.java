@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -29,6 +30,9 @@ public class UserEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role_id", referencedColumnName = "role_id", nullable = false)
     private RoleEntity role;
+
+    @ManyToMany(mappedBy = "users")
+    private Set<ProjectEntity> projects;
 
     public long getId() {
         return id;
@@ -78,6 +82,14 @@ public class UserEntity {
         this.cpf = cpf;
     }
 
+    public Set<ProjectEntity> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<ProjectEntity> projects) {
+        this.projects = projects;
+    }
+
     public UserDto toUserDto(){
         UserDto userDto = new UserDto();
         userDto.setId(this.id);
@@ -86,6 +98,7 @@ public class UserEntity {
         userDto.setPassword(this.password);
         userDto.setCpf(this.cpf);
         userDto.setRole(this.role);
+        userDto.setProjects(this.projects);
         return userDto;
     }
 }

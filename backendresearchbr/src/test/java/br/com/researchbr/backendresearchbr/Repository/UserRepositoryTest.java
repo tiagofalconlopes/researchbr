@@ -40,7 +40,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void salveUser() {
+    public void saveUser() {
 
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername("testuser");
@@ -54,7 +54,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void buscarUserRetornaNull() {
+    public void findUserReturnNull() {
 
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername("testuser");

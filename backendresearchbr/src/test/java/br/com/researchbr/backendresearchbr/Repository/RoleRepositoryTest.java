@@ -24,7 +24,7 @@ public class RoleRepositoryTest {
     }
 
     @Test
-    public void salveRole() {
+    public void saveRole() {
 
         RoleEntity roles = new RoleEntity();
         roles.setName(RoleType.ASSISTANT);

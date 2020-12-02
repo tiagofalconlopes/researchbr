@@ -31,7 +31,7 @@ public abstract class ServiceAbstract<
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public E editar(E entidade, T id) {
+    public E edit(E entidade, T id) {
         try{
             entidade.setId(id);
             return repository.save(entidade);
@@ -64,12 +64,12 @@ public abstract class ServiceAbstract<
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void deletarPorId(T id) {
+    public void deleteById(T id) {
         try {
             E entity = repository.findById(id).get();
             repository.delete(entity);
         } catch (Exception e) {
-            logger.error("Não foi possível remover a entidade de id: " + id +". Mensagem: " + e.getMessage());
+            logger.error("It was not possible to delete the entity of id: " + id +". Message: " + e.getMessage());
             throw new RuntimeException();
         }
     }
