@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -61,6 +61,7 @@ public class ProjectServiceImpl extends ServiceAbstract<ProjectRepository, Proje
         projectEntity.setTotal(projectDto.getTotal());
         projectEntity.setOutgoing(projectDto.getOutgoing());
         projectEntity.setStart(projectDto.getStart());
+        projectEntity.setInvoices(projectDto.convert().getInvoices());
         projectEntity.setEnd(projectDto.getEnd());
         Set<UserEntity> users = new HashSet<>();
         projectDto.getUsersIds().forEach( id -> users.add(userRepository.findById(id).get()) );

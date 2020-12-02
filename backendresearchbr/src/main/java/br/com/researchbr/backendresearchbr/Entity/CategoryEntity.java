@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "category")
-//@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = CategoryEntity.class)
+@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = CategoryEntity.class)
 public class CategoryEntity extends EntityAbstract<Long> {
 
     @Id

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,6 +38,9 @@ public class ProjectEntity extends EntityAbstract<Long> {
     @JoinTable(name = "user_x_project",
             joinColumns =  @JoinColumn(name ="projectId", nullable = false), inverseJoinColumns= @JoinColumn(name="userId", nullable = false))
     private Set<UserEntity> users;
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private List<InvoiceEntity> invoices;
 
     public ProjectEntity() {
     }
@@ -113,5 +117,13 @@ public class ProjectEntity extends EntityAbstract<Long> {
 
     public void setUsers(Set<UserEntity> users) {
         this.users = users;
+    }
+
+    public List<InvoiceEntity> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<InvoiceEntity> invoices) {
+        this.invoices = invoices;
     }
 }

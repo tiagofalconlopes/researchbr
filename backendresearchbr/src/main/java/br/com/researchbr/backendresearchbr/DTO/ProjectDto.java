@@ -1,6 +1,7 @@
 package br.com.researchbr.backendresearchbr.DTO;
 
 import br.com.researchbr.backendresearchbr.Entity.EntityAbstract;
+import br.com.researchbr.backendresearchbr.Entity.InvoiceEntity;
 import br.com.researchbr.backendresearchbr.Entity.ProjectEntity;
 import br.com.researchbr.backendresearchbr.Entity.UserEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -25,6 +26,7 @@ public class ProjectDto {
     private LocalDate end;
     private Set<UserEntity> users;
     private List<Long> usersIds;
+    private List<InvoiceEntity> invoices;
 
     public ProjectDto() {
     }
@@ -39,6 +41,7 @@ public class ProjectDto {
         this.start = project.getStart();
         this.end = project.getEnd();
         this.users = project.getUsers();
+        this.invoices = project.getInvoices();
     }
 
     public ProjectEntity convert() {
@@ -52,6 +55,7 @@ public class ProjectDto {
         project.setStart(this.start);
         project.setEnd(this.end);
         project.setUsers(this.users);
+        project.setInvoices(this.invoices);
         return project;
     }
 
@@ -132,5 +136,13 @@ public class ProjectDto {
 
     public void setUsersIds(List<Long> usersIds) {
         this.usersIds = usersIds;
+    }
+
+    public List<InvoiceEntity> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<InvoiceEntity> invoices) {
+        this.invoices = invoices;
     }
 }
