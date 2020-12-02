@@ -95,6 +95,7 @@ public class InvoiceServiceImpl extends ServiceAbstract<InvoiceRepository, Invoi
         invoiceEntity.setDate(invoiceDto.getDate());
         invoiceEntity.setValue(invoiceDto.getValue());
         invoiceEntity.setProject(invoiceDto.getProject());
+        invoiceEntity.setItems(invoiceDto.getItems());
         changeProjectOutgoing(invoiceDto, method);
         return invoiceEntity;
     }

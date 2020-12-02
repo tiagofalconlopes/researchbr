@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "category")
@@ -15,6 +16,9 @@ public class CategoryEntity extends EntityAbstract<Long> {
     private Long id;
     @Column(unique = true, nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "category",fetch = FetchType.EAGER)
+    private List<ItemEntity> items;
 
     public CategoryEntity() {
     }
@@ -35,5 +39,13 @@ public class CategoryEntity extends EntityAbstract<Long> {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<ItemEntity> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemEntity> items) {
+        this.items = items;
     }
 }

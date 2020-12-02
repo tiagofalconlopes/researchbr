@@ -1,44 +1,47 @@
-package br.com.researchbr.backendresearchbr.Entity;
+package br.com.researchbr.backendresearchbr.DTO;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import br.com.researchbr.backendresearchbr.Entity.InvoiceEntity;
+import br.com.researchbr.backendresearchbr.Entity.ItemEntity;
+import br.com.researchbr.backendresearchbr.Entity.ProjectEntity;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-@Table(name = "invoice")
-@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = InvoiceEntity.class)
-public class InvoiceEntity extends EntityAbstract<Long>{
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+public class InvoiceDto {
     private Long id;
-    @Column(unique = true, nullable = false)
     private String code;
-    @Column(nullable = false)
     private LocalDate date;
-    @Column(nullable = false)
     private double value;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "projectId", nullable = false)
     private ProjectEntity project;
-
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
     private List<ItemEntity> items;
 
-
-    public InvoiceEntity() {
+    public InvoiceDto() {
     }
 
-    @Override
+    public InvoiceDto(InvoiceEntity invoice) {
+        this.id = invoice.getId();
+        this.code = invoice.getCode();
+        this.date = invoice.getDate();
+        this.value = invoice.getValue();
+        this.project = invoice.getProject();
+        this.items = invoice.getItems();
+    }
+
+    public InvoiceEntity convert() {
+        InvoiceEntity invoice = new InvoiceEntity();
+        invoice.setId(this.id);
+        invoice.setCode(this.code);
+        invoice.setDate(this.date);
+        invoice.setValue(this.value);
+        invoice.setProject(this.project);
+        invoice.setItems(this.items);
+        return invoice;
+    }
+
     public Long getId() {
-        return this.id;
+        return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
