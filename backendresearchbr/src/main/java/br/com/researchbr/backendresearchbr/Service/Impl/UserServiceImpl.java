@@ -121,6 +121,21 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         }
     }
 
+    @Override
+    public UserDto edit(Long id, UserDto userDto) {
+        try{
+            userDto.setId(id);
+            RoleEntity role = roleRepository.find(userDto.getRoleName());
+            userDto.setRole(role);
+            UserEntity user = createUserFromDto(userDto);
+            UserDto newDto = new UserDto(userRepository.save(user));
+            return newDto;
+        } catch (Exception e) {
+            log.error("Error while editing user: " + e.getMessage());
+            throw new RuntimeException();
+        }
+    }
+
     private void checkDuplicatedUserInfo(UserDto userDto) {
         UserEntity userWithDuplicateUsername = userRepository.findByUsername(userDto.getUsername());
         if(userWithDuplicateUsername != null && userDto.getId() != userWithDuplicateUsername.getId()) {

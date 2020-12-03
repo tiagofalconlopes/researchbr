@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -38,8 +39,14 @@ public class UserController {
 
     @GetMapping(value = "/user/{username}")
     public ApiResponse getUser(@PathVariable String username){
-        log.info(String.format("Updating user data by username %s", authenticationFacadeService.getAuthentication().getPrincipal()));
+        log.info(String.format("Get user data by username %s", authenticationFacadeService.getAuthentication().getPrincipal()));
         return new ApiResponse(HttpStatus.OK, SUCCESS, userService.findOne(username));
+    }
+
+    @PutMapping(value = "/user/edit/{id}")
+    public ApiResponse editUser(@PathVariable(value = "id") Long id, @RequestBody UserDto user){
+        log.info(String.format("Editing user %s", authenticationFacadeService.getAuthentication().getPrincipal()));
+        return new ApiResponse(HttpStatus.OK, SUCCESS, userService.edit(id, user));
     }
 
     @GetMapping(value = "/userEmail")

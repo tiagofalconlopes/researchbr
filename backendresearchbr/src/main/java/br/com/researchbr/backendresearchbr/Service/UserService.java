@@ -8,6 +8,7 @@ import java.util.List;
 public interface UserService {
 
     UserDto save(UserDto user);
+    UserDto edit(Long id, UserDto user);
     List<UserDto> findAll();
     UserEntity findOne(String username);
     List<String> findAllEmail();
