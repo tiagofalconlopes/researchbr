@@ -1,0 +1,607 @@
+{
+	"info": {
+		"_postman_id": "24b7625f-4b24-47f9-86d5-9985f43ec83c",
+		"name": "backendresearchbr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "nonLoggedUser",
+			"item": [
+				{
+					"name": "cantAccessResourcesWithoutLogin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/projects/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPrincipalUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "mais-um-cliente",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "um-cliente",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"principal\",\n    \"email\": \"principal@email\",\n    \"password\": \"principal\",\n    \"roleName\": \"PRINCIPAL\",\n    \"cpf\": \"01234567893\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createAssistantUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "mais-um-cliente",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "um-cliente",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"assistant\",\n    \"email\": \"assistant@email\",\n    \"password\": \"assistant\",\n    \"roleName\": \"ASSISTANT\",\n    \"cpf\": \"01234567894\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "principalUser",
+			"item": [
+				{
+					"name": "loginPrincipal",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "mais-um-cliente",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "um-cliente",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "principal",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "principal",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createProject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"0123456/2020\",\n    \"agency\": \"CAPES\",\n    \"title\": \"CAPES title\",\n    \"total\": 1000.00,\n    \"outgoing\": 0.00,\n    \"start\": \"2020-12-10\",\n    \"end\": \"2021-01-15\",\n    \"usersIds\":[2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/projects/new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createInvoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"012345678901110110\",\n    \"value\": 20.50,\n    \"date\": \"2020-12-10\",\n    \"project\": {\"id\": 2}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/invoices/new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"invoices",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listInvoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/invoices/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"invoices",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listProjects",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/projects/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editInvoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"012345678901110110\",\n    \"value\": 11.50,\n    \"date\": \"2020-12-09\",\n    \"project\": {\"id\": 2}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/invoices/invoice/edit/12",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"invoices",
+								"invoice",
+								"edit",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createItem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"pcr\",\n    \"value\": 3.10,\n    \"quantity\": 1,\n    \"description\": \"new item\",\n    \"invoice\": {\"id\": 12},\n    \"category\": {\"name\": \"Material permanente\"}  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/items/new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"items",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listItems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/items/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"items",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editProject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"0123456/2020\",\n    \"agency\": \"CAPES\",\n    \"title\": \"new CAPES title\",\n    \"total\": 1000.00,\n    \"outgoing\": 0.00,\n    \"start\": \"2020-12-10\",\n    \"end\": \"2021-01-15\",\n    \"usersIds\":[2],\n    \"invoices\": [{\"id\": 12, \"code\": \"012345678901110110\", \"date\": [\n            2020,\n            12,\n            10\n        ],\n        \"value\": 20.5,\n        \"project\": {\n            \"id\": 2}}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/projects/project/edit/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"project",
+								"edit",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteItem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM5MTMsInVzZXJfbmFtZSI6InByaW5jaXBhbCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUFJJTkNJUEFMIl0sImp0aSI6IjM3NDk2ZmYxLTVkNmEtNDc3MS1iYWRkLWFlYjU1OTQwN2YxMSIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.5_ck9J4FdN7ZhOKfSglC5LygPHz00iXbuBeq8dz0CMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/items/item/delete/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"items",
+								"item",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "assistantUser",
+			"item": [
+				{
+					"name": "loginAssistant",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "mais-um-cliente",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "um-cliente",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "assistant",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "assistant",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cantAccessUnauthorizedResource",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM1NjMsInVzZXJfbmFtZSI6ImFzc2lzdGFudCIsImF1dGhvcml0aWVzIjpbIlJPTEVfQVNTSVNUQU5UIl0sImp0aSI6ImQ5NzE1ZGFmLTEyZGYtNDdiYy1hYjFmLTFhODAzOTdkYWQyNCIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.DHFhVSSTZGXpYGyXvPWLjp_FExQYAFjnG-cjp-AK3aw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "canAccessAuthorizedResource",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDcwNTM1NjMsInVzZXJfbmFtZSI6ImFzc2lzdGFudCIsImF1dGhvcml0aWVzIjpbIlJPTEVfQVNTSVNUQU5UIl0sImp0aSI6ImQ5NzE1ZGFmLTEyZGYtNDdiYy1hYjFmLTFhODAzOTdkYWQyNCIsImNsaWVudF9pZCI6InVtLWNsaWVudGUiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdfQ.DHFhVSSTZGXpYGyXvPWLjp_FExQYAFjnG-cjp-AK3aw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/projects/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
