@@ -1,0 +1,24 @@
+.inputText {
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px 30px;
+  width: 100%;
+}
+
+.inputText:focus {
+  border: none;
+  border-bottom: 2px solid #000000;
+}
+
+
+@media (min-width: 768px) {
+  .inputText {
+    width: 500px;
+  }
+}

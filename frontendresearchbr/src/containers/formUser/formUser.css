@@ -1,0 +1,62 @@
+.default-container,
+.form,
+.form-container {
+  align-items: center;
+  width: 100%;
+}
+
+.div-center {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.link-std {
+  color: black;
+  text-decoration: none;
+}
+
+.div-center-title1 {
+  color: darkgray;
+  font-size: 20px;
+}
+
+
+#hide-password,
+#hide-title1,
+#hide-title3,
+#hide-cpf {
+  color: #ff0000;
+  font-size: 12px;
+  margin: 0 auto;
+  padding: 0 auto;
+  visibility: hidden;
+}
+
+.items {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 80%;
+}
+.items-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.items-select {
+  display: block;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.items-btn {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .items {
+    width: 500px;
+  }
+}
