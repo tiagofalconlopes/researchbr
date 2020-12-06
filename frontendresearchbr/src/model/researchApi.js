@@ -67,6 +67,7 @@ export default class ResearchApi {
       }
     })
     .then( res  => {
+      console.log(res.request.responseText)
       return res.data;
     })
     .catch( error => {
@@ -88,8 +89,36 @@ export default class ResearchApi {
     })
   }
 
+  async findInvoiceById( id ) {
+    return await axios.get(`${ url }invoices/invoice/${ id }`, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      }
+    })
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
   async createANewProject( { usersIds, code, agency, title, description, total, outgoing, start, end } ) {
     return await axios.post(`${ url }projects/new`, { usersIds: usersIds, code: code, agency: agency, title: title, description: description, total: total, outgoing: outgoing, start: start, end: end }, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      } 
+    } )
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
+  async createANewInvoice( { project, code, value, date } ) {
+    return await axios.post(`${ url }invoices/new`, { project: project, code: code, value: value, date: date }, {
       headers: {
         'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
       } 

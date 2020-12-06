@@ -26,8 +26,7 @@ public class InvoiceController {
     public List<InvoiceEntity> listAll(){
         log.info("Finding invoices.");
         log.warn("The list can return null if no invoices are available!");
-        List<InvoiceEntity> invoiceDtos = new ArrayList<>();
-        invoiceService.all().forEach( invoice -> invoiceDtos.add(invoice));
+        List<InvoiceEntity> invoiceDtos = invoiceService.all();
         return invoiceDtos;
     }
 

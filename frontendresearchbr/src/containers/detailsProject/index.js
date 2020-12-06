@@ -20,14 +20,13 @@ export default class DetailsProjects extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const projectId = this.props.match.params.id;
     const requests = [
       this.treatApiData.findUserData(),
       this.researchApi.findProjectById( projectId ),
       this.researchApi.findAllCategories(),
       this.researchApi.findAllItems(),
-      this.researchApi.findAllInvoices()
     ];
 
     Promise.all( requests )
@@ -36,7 +35,28 @@ export default class DetailsProjects extends Component {
         let project = responses[ 1 ];
         let categories = responses[ 2 ];
         let items = responses[ 3 ];
-        let invoices = responses[ 4 ];
+
+        if( project ) {
+          let ids = project.invoices;
+          let aux = [];
+          ids.forEach(element => {
+            if(typeof element === 'number' ) {
+              aux.push(this.researchApi.findInvoiceById(element))
+            }
+            if(typeof element === 'object' ) {
+              aux.push(this.researchApi.findInvoiceById(element.id))
+            }
+          });
+          Promise.all( aux )
+            .then( res => {
+              this.setState( state => {
+                return {
+                  ...state,
+                  invoices: res,
+                }
+              })
+            })
+        }
         
         this.setState( state => {
           return {
@@ -46,10 +66,31 @@ export default class DetailsProjects extends Component {
             role: this.treatApiData.findUserRole(),
             categories: categories,
             items: items,
-            invoices: invoices
           }
-        } )
+        })
       })
+      
+  }
+
+  checkInvoice() {
+    if( this.state.project) {
+      let ids = this.state.project.invoices;
+      let aux = [];
+      ids.forEach(element => {
+        if(typeof element === 'number' ) {
+          aux.push(this.researchApi.findInvoiceById(element))
+        }
+      });
+      Promise.all( aux )
+        .then( res => {
+          this.setState( state => {
+            return {
+              ...state,
+              invoices: res,
+            }
+          })
+        })
+    }
   }
 
   render() {
@@ -59,11 +100,12 @@ export default class DetailsProjects extends Component {
       <React.Fragment>
         <HeaderIn />
         <div className='default-container'>
+          {console.log(invoices)}
           {
             role === 'ROLE_PRINCIPAL' ? (
               <React.Fragment>
                 <div className='items'>
-                  <ButtonUi classCss='items-btn' name='Add an invoice' />
+                  <ButtonUi classCss='items-btn' name='Add an invoice' link={ `/newInvoice/${ this.props.match.params.id }` } />
                 </div>
                 <div className='items'>
                   <ButtonUi classCss='items-btn' name='Add new item to an invoice' />
@@ -182,7 +224,6 @@ export default class DetailsProjects extends Component {
               </div>
           ) : (
             <React.Fragment>
-              <HeaderIn />
               <div className='items'><p>Please, verify your permissions</p></div>
             </React.Fragment>
           ) }
