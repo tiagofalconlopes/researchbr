@@ -1,5 +1,6 @@
+import DetailsProjects from './detailsProject';
 import FormUser from './formUser';
 import ListProjects from './listProjects';
 import Login from './login';
 
-export { FormUser, ListProjects, Login }
+export { DetailsProjects, FormUser, ListProjects, Login }

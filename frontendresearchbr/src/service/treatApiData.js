@@ -4,7 +4,7 @@ export default class TreatApiData {
 
   findUserRole = () => {
     const autoridades = this._tokenTreatment();
-    return autoridades !== null ? autoridades.authorities : null;
+    return autoridades !== null ? autoridades.authorities[ 0 ] : null;
   }
   
   

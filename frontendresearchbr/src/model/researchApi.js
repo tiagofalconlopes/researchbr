@@ -32,6 +32,48 @@ export default class ResearchApi {
     })
   }
 
+  async findAllCategories() {
+    return await axios.get(`${ url }categories/all`, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      }
+    })
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
+  async findAllItems() {
+    return await axios.get(`${ url }items/all`, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      }
+    })
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
+  async findAllInvoices() {
+    return await axios.get(`${ url }invoices/all`, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      }
+    })
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
   async findProjectById( id ) {
     return await axios.get(`${ url }projects/project/${ id }`, {
       headers: {

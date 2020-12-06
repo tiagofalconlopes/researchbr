@@ -55,8 +55,53 @@
   width: 100%;
 }
 
+.items-list {
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+.ul-std {
+  padding: 0;
+  text-align: center;
+}
+
+.li-project,
+.item-detail-li {
+  list-style-type: none;
+}
+
+.li-title {
+  font-weight: bold;
+}
+
+
+.li-title2 {
+  color: darkgray;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.prj-link {
+  color: black;
+  text-decoration: none;
+}
+
+.item-detail {
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px dotted lightgray;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  width: 80%;
+}
+
+.item-detail-li {
+  font-size: 14px;
+}
+
 @media (min-width: 768px) {
-  .items {
+  .items,
+  .item-detail {
     width: 500px;
   }
 }

@@ -1,71 +1,520 @@
-2020-12-05 19:52:47,715 INFO  [restartedMain] BackendresearchbrApplication : Starting BackendresearchbrApplication using Java 1.8.0_275 on tf with PID 25792 (/home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/backendresearchbr/build/classes/java/main started by tiagofalcon in /home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/backendresearchbr)
-2020-12-05 19:52:47,746 INFO  [restartedMain] BackendresearchbrApplication : The following profiles are active: dev
-2020-12-05 19:52:48,061 WARN  [restartedMain] ConfigDataEnvironment : Property 'spring.profiles' imported from location 'class path resource [application.yaml]' is invalid and should be replaced with 'spring.config.activate.on-profile' [origin: class path resource [application.yaml] - 41:13]
-2020-12-05 19:52:48,062 WARN  [restartedMain] ConfigDataEnvironment : Property 'spring.profiles' imported from location 'class path resource [application.yaml]' is invalid and should be replaced with 'spring.config.activate.on-profile' [origin: class path resource [application.yaml] - 11:13]
-2020-12-05 19:52:48,064 INFO  [restartedMain] ChangeableUrls : The Class-Path manifest attribute in /home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/ojdbc8.jar referenced one or more files that do not exist: file:/home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/oraclepki.jar
-2020-12-05 19:52:48,064 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-05 19:52:48,065 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-12-05 19:52:53,616 INFO  [restartedMain] RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-12-05 19:52:53,739 INFO  [restartedMain] RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 6 JPA repository interfaces.
-2020-12-05 19:52:54,046 INFO  [restartedMain] ConfigurationClassPostProcessor : Cannot enhance @Configuration bean definition 'org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerEndpointsConfiguration$TokenKeyEndpointRegistrar' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
-2020-12-05 19:52:54,660 INFO  [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@369bf2b4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-12-05 19:52:54,668 INFO  [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-12-05 19:52:55,756 INFO  [restartedMain] TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
-2020-12-05 19:52:55,884 INFO  [restartedMain] StandardService : Starting service [Tomcat]
-2020-12-05 19:52:55,885 INFO  [restartedMain] StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-12-05 19:52:55,999 INFO  [restartedMain] [/] : Initializing Spring embedded WebApplicationContext
-2020-12-05 19:52:55,999 INFO  [restartedMain] ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7933 ms
-2020-12-05 19:52:56,484 INFO  [restartedMain] HikariDataSource : HikariPool-1 - Starting...
-2020-12-05 19:52:57,499 INFO  [restartedMain] HikariDataSource : HikariPool-1 - Start completed.
-2020-12-05 19:52:57,506 INFO  [restartedMain] H2ConsoleAutoConfiguration : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/backendresearchbr'
-2020-12-05 19:52:57,744 INFO  [restartedMain] ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-05 19:52:58,349 WARN  [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-05 19:53:01,694 INFO  [task-1] LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-05 19:53:02,233 INFO  [task-2] OptionalLiveReloadServer : LiveReload server is running on port 35729
-2020-12-05 19:53:02,530 WARN  [restartedMain] JwtAccessTokenConverter : Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
-2020-12-05 19:53:03,689 INFO  [restartedMain] DefaultSecurityFilterChain : Will secure Or [Ant [pattern='/login'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70a9209e, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c9dea02, org.springframework.security.web.header.HeaderWriterFilter@1314025d, org.springframework.security.web.authentication.logout.LogoutFilter@139231ff, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1b3dbba3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@73bc5409, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7580d2e4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c0ac0f, org.springframework.security.web.session.SessionManagementFilter@457dbc55, org.springframework.security.web.access.ExceptionTranslationFilter@7f4a4f60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f65a2c7]
-2020-12-05 19:53:03,717 INFO  [restartedMain] DefaultSecurityFilterChain : Will secure Or [org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfiguration$NotOAuthRequestMatcher@76ecf721] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4565b35c, org.springframework.security.web.context.SecurityContextPersistenceFilter@632c148d, org.springframework.security.web.header.HeaderWriterFilter@d785180, org.springframework.web.filter.CorsFilter@4ccbaba4, org.springframework.security.web.authentication.logout.LogoutFilter@55803d55, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@5fed26d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23d7aae5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6cec0b4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a2937b7, org.springframework.security.web.session.SessionManagementFilter@791878ae, org.springframework.security.web.access.ExceptionTranslationFilter@79f73994, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d6979ab]
-2020-12-05 19:53:03,722 INFO  [restartedMain] DefaultSecurityFilterChain : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2164526d, org.springframework.security.web.context.SecurityContextPersistenceFilter@579157b2, org.springframework.security.web.header.HeaderWriterFilter@7fe54917, org.springframework.security.web.authentication.logout.LogoutFilter@1a5b9ccd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cbb2ea9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69c375d8, org.springframework.security.web.session.SessionManagementFilter@f84287d, org.springframework.security.web.access.ExceptionTranslationFilter@7413fa4b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5fd07cb1]
-2020-12-05 19:53:04,054 INFO  [restartedMain] TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-05 19:53:04,056 INFO  [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2020-12-05 19:53:04,110 INFO  [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-12-05 19:53:04,125 INFO  [restartedMain] BackendresearchbrApplication : Started BackendresearchbrApplication in 17.637 seconds (JVM running for 19.007)
-2020-12-05 19:56:18,946 INFO  [http-nio-8080-exec-1] [/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-05 19:56:20,295 INFO  [http-nio-8080-exec-5] ProjectController : Finding projects.
-2020-12-05 19:56:20,295 WARN  [http-nio-8080-exec-5] ProjectController : The list can return null if no projects are available!
-2020-12-05 19:56:20,317 INFO  [http-nio-8080-exec-3] UserController : Get user data by username principal
-2020-12-05 19:57:37,474 INFO  [http-nio-8080-exec-9] ProjectController : Finding projects.
-2020-12-05 19:57:37,474 WARN  [http-nio-8080-exec-9] ProjectController : The list can return null if no projects are available!
-2020-12-05 19:57:37,477 INFO  [http-nio-8080-exec-8] UserController : Get user data by username principal
-2020-12-05 20:01:39,984 INFO  [http-nio-8080-exec-4] ProjectController : Finding projects.
-2020-12-05 20:01:39,985 WARN  [http-nio-8080-exec-4] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:01:39,986 INFO  [http-nio-8080-exec-2] UserController : Get user data by username principal
-2020-12-05 20:01:50,494 INFO  [http-nio-8080-exec-5] ProjectController : Finding projects.
-2020-12-05 20:01:50,495 WARN  [http-nio-8080-exec-5] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:01:50,497 INFO  [http-nio-8080-exec-3] UserController : Get user data by username principal
-2020-12-05 20:04:33,462 INFO  [http-nio-8080-exec-9] UserController : Get user data by username principal
-2020-12-05 20:04:33,473 INFO  [http-nio-8080-exec-10] ProjectController : Finding projects.
-2020-12-05 20:04:33,474 WARN  [http-nio-8080-exec-10] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:11:22,898 WARN  [http-nio-8080-exec-3] DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `br.com.researchbr.backendresearchbr.Entity.RoleEntity` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('PRINCIPAL'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `br.com.researchbr.backendresearchbr.Entity.RoleEntity` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('PRINCIPAL')
- at [Source: (PushbackInputStream); line: 1, column: 97] (through reference chain: br.com.researchbr.backendresearchbr.DTO.UserDto["role"])]
-2020-12-05 20:11:23,027 ERROR [http-nio-8080-exec-6] UserServiceImpl : Invalid username or password.
-2020-12-05 20:11:23,155 INFO  [http-nio-8080-exec-6] TokenEndpoint : Handling error: InvalidGrantException, Bad credentials
-2020-12-05 20:29:49,314 INFO  [http-nio-8080-exec-7] UserController : Saving a new user anonymousUser
-2020-12-05 20:29:50,224 INFO  [http-nio-8080-exec-2] ProjectController : Finding projects.
-2020-12-05 20:29:50,225 WARN  [http-nio-8080-exec-2] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:29:50,234 INFO  [http-nio-8080-exec-1] UserController : Get user data by username aaaa
-2020-12-05 20:33:12,083 INFO  [http-nio-8080-exec-6] ProjectController : Finding projects.
-2020-12-05 20:33:12,084 WARN  [http-nio-8080-exec-6] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:33:12,097 INFO  [http-nio-8080-exec-5] UserController : Get user data by username aaaa
-2020-12-05 20:34:37,753 INFO  [http-nio-8080-exec-9] UserController : Get user data by username aaaa
-2020-12-05 20:34:37,770 INFO  [http-nio-8080-exec-10] ProjectController : Finding projects.
-2020-12-05 20:34:37,770 WARN  [http-nio-8080-exec-10] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:36:09,351 INFO  [http-nio-8080-exec-4] ProjectController : Finding projects.
-2020-12-05 20:36:09,351 WARN  [http-nio-8080-exec-4] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:36:09,355 INFO  [http-nio-8080-exec-3] UserController : Get user data by username aaaa
-2020-12-05 20:36:18,763 INFO  [http-nio-8080-exec-5] UserController : Get user data by username aaaa
-2020-12-05 20:36:18,764 INFO  [http-nio-8080-exec-6] ProjectController : Finding projects.
-2020-12-05 20:36:18,764 WARN  [http-nio-8080-exec-6] ProjectController : The list can return null if no projects are available!
-2020-12-05 20:39:59,101 INFO  [http-nio-8080-exec-9] UserController : Get user data by username aaaa
-2020-12-05 20:39:59,104 INFO  [http-nio-8080-exec-10] ProjectController : Finding projects.
-2020-12-05 20:39:59,104 WARN  [http-nio-8080-exec-10] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:41:58,190 INFO  [restartedMain] BackendresearchbrApplication : Starting BackendresearchbrApplication using Java 1.8.0_275 on tf with PID 7491 (/home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/backendresearchbr/build/classes/java/main started by tiagofalcon in /home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/backendresearchbr)
+2020-12-06 09:41:58,224 INFO  [restartedMain] BackendresearchbrApplication : The following profiles are active: dev
+2020-12-06 09:41:58,479 WARN  [restartedMain] ConfigDataEnvironment : Property 'spring.profiles' imported from location 'class path resource [application.yaml]' is invalid and should be replaced with 'spring.config.activate.on-profile' [origin: class path resource [application.yaml] - 41:13]
+2020-12-06 09:41:58,479 WARN  [restartedMain] ConfigDataEnvironment : Property 'spring.profiles' imported from location 'class path resource [application.yaml]' is invalid and should be replaced with 'spring.config.activate.on-profile' [origin: class path resource [application.yaml] - 11:13]
+2020-12-06 09:41:58,481 INFO  [restartedMain] ChangeableUrls : The Class-Path manifest attribute in /home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/ojdbc8.jar referenced one or more files that do not exist: file:/home/tiagofalcon/Documents/EaD_ADS/ciclo_5/Ead_Projeto_Aplicado/projeto/researchbr/oraclepki.jar
+2020-12-06 09:41:58,481 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-06 09:41:58,481 INFO  [restartedMain] DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-06 09:42:03,425 INFO  [restartedMain] RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-12-06 09:42:03,571 INFO  [restartedMain] RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 133 ms. Found 6 JPA repository interfaces.
+2020-12-06 09:42:03,904 INFO  [restartedMain] ConfigurationClassPostProcessor : Cannot enhance @Configuration bean definition 'org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerEndpointsConfiguration$TokenKeyEndpointRegistrar' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-12-06 09:42:04,532 INFO  [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4bad8ad3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-06 09:42:04,541 INFO  [restartedMain] PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-06 09:42:05,812 INFO  [restartedMain] TomcatWebServer : Tomcat initialized with port(s): 8080 (http)
+2020-12-06 09:42:05,948 INFO  [restartedMain] StandardService : Starting service [Tomcat]
+2020-12-06 09:42:05,949 INFO  [restartedMain] StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-06 09:42:06,059 INFO  [restartedMain] [/] : Initializing Spring embedded WebApplicationContext
+2020-12-06 09:42:06,060 INFO  [restartedMain] ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7578 ms
+2020-12-06 09:42:06,888 INFO  [restartedMain] HikariDataSource : HikariPool-1 - Starting...
+2020-12-06 09:42:08,146 INFO  [restartedMain] HikariDataSource : HikariPool-1 - Start completed.
+2020-12-06 09:42:08,157 INFO  [restartedMain] H2ConsoleAutoConfiguration : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/backendresearchbr'
+2020-12-06 09:42:08,445 INFO  [restartedMain] ThreadPoolTaskExecutor : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-06 09:42:09,605 WARN  [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-06 09:42:13,719 INFO  [task-1] LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-06 09:42:14,380 INFO  [task-2] OptionalLiveReloadServer : LiveReload server is running on port 35729
+2020-12-06 09:42:14,786 WARN  [restartedMain] JwtAccessTokenConverter : Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+2020-12-06 09:42:16,107 INFO  [restartedMain] DefaultSecurityFilterChain : Will secure Or [Ant [pattern='/login'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6749f8e3, org.springframework.security.web.context.SecurityContextPersistenceFilter@714a7aac, org.springframework.security.web.header.HeaderWriterFilter@4f9906bb, org.springframework.security.web.authentication.logout.LogoutFilter@333203f1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@10b48df3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23646bf1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11cb1a18, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@593325e2, org.springframework.security.web.session.SessionManagementFilter@7407086, org.springframework.security.web.access.ExceptionTranslationFilter@2e095e98, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@305eff7f]
+2020-12-06 09:42:16,134 INFO  [restartedMain] DefaultSecurityFilterChain : Will secure Or [org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfiguration$NotOAuthRequestMatcher@5b046806] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f6831e5, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b28191a, org.springframework.security.web.header.HeaderWriterFilter@68563210, org.springframework.web.filter.CorsFilter@1f0db40d, org.springframework.security.web.authentication.logout.LogoutFilter@787bc128, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@5d6aab05, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3ae0f48a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@637f8774, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29eeb3d3, org.springframework.security.web.session.SessionManagementFilter@1cbb9890, org.springframework.security.web.access.ExceptionTranslationFilter@35528762, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@475e216e]
+2020-12-06 09:42:16,140 INFO  [restartedMain] DefaultSecurityFilterChain : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@cbfe4f3, org.springframework.security.web.context.SecurityContextPersistenceFilter@117ff031, org.springframework.security.web.header.HeaderWriterFilter@4c0c130c, org.springframework.security.web.authentication.logout.LogoutFilter@68f655f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1501e1e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@39b90436, org.springframework.security.web.session.SessionManagementFilter@e2628d3, org.springframework.security.web.access.ExceptionTranslationFilter@30b6999e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69c5d1c5]
+2020-12-06 09:42:16,464 INFO  [restartedMain] TomcatWebServer : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-06 09:42:16,468 INFO  [restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-12-06 09:42:16,526 INFO  [restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-12-06 09:42:16,538 INFO  [restartedMain] BackendresearchbrApplication : Started BackendresearchbrApplication in 19.873 seconds (JVM running for 23.66)
+2020-12-06 09:43:26,082 INFO  [http-nio-8080-exec-1] [/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-06 09:43:48,274 INFO  [http-nio-8080-exec-7] ProjectController : Finding projects.
+2020-12-06 09:43:48,275 WARN  [http-nio-8080-exec-7] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:43:48,304 INFO  [http-nio-8080-exec-9] UserController : Get user data by username principal
+2020-12-06 09:44:46,365 INFO  [http-nio-8080-exec-1] ProjectController : Finding projects.
+2020-12-06 09:44:46,365 WARN  [http-nio-8080-exec-1] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:44:46,372 INFO  [http-nio-8080-exec-10] UserController : Get user data by username principal
+2020-12-06 09:46:08,133 INFO  [http-nio-8080-exec-5] TokenEndpoint : Handling error: InvalidGrantException, Bad credentials
+2020-12-06 09:46:22,845 INFO  [http-nio-8080-exec-9] ProjectController : Finding projects.
+2020-12-06 09:46:22,845 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 09:46:22,852 WARN  [http-nio-8080-exec-9] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:48:46,129 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 09:48:46,140 INFO  [http-nio-8080-exec-3] ProjectController : Finding projects.
+2020-12-06 09:48:46,140 WARN  [http-nio-8080-exec-3] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:50:39,830 INFO  [http-nio-8080-exec-7] ProjectController : Finding projects.
+2020-12-06 09:50:39,831 WARN  [http-nio-8080-exec-7] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:50:39,831 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 09:51:02,041 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 09:51:02,057 INFO  [http-nio-8080-exec-9] ProjectController : Finding projects.
+2020-12-06 09:51:02,057 WARN  [http-nio-8080-exec-9] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:51:17,115 INFO  [http-nio-8080-exec-1] ProjectController : Finding projects.
+2020-12-06 09:51:17,115 WARN  [http-nio-8080-exec-1] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:51:17,116 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 09:51:46,113 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 09:51:46,120 INFO  [http-nio-8080-exec-3] ProjectController : Finding projects.
+2020-12-06 09:51:46,121 WARN  [http-nio-8080-exec-3] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:54:30,597 INFO  [http-nio-8080-exec-8] ProjectController : Finding projects.
+2020-12-06 09:54:30,597 WARN  [http-nio-8080-exec-8] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:54:30,598 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 09:55:49,813 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 09:55:49,815 INFO  [http-nio-8080-exec-2] ProjectController : Finding projects.
+2020-12-06 09:55:49,815 WARN  [http-nio-8080-exec-2] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:58:59,437 INFO  [http-nio-8080-exec-5] ProjectController : Finding projects.
+2020-12-06 09:58:59,437 WARN  [http-nio-8080-exec-5] ProjectController : The list can return null if no projects are available!
+2020-12-06 09:58:59,441 INFO  [http-nio-8080-exec-6] UserController : Get user data by username username
+2020-12-06 10:00:09,075 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 10:00:09,106 INFO  [http-nio-8080-exec-9] ProjectController : Finding projects.
+2020-12-06 10:00:09,106 WARN  [http-nio-8080-exec-9] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:02:29,230 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 10:02:29,230 INFO  [http-nio-8080-exec-3] ProjectController : Finding projects.
+2020-12-06 10:02:29,231 WARN  [http-nio-8080-exec-3] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:21:38,947 INFO  [http-nio-8080-exec-8] ProjectController : Finding projects.
+2020-12-06 10:21:38,948 WARN  [http-nio-8080-exec-8] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:21:38,942 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 10:23:37,852 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 10:23:37,862 INFO  [http-nio-8080-exec-4] ProjectController : Finding projects.
+2020-12-06 10:23:37,868 WARN  [http-nio-8080-exec-4] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:31:52,663 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 10:31:52,673 INFO  [http-nio-8080-exec-8] ProjectController : Finding projects.
+2020-12-06 10:31:52,673 WARN  [http-nio-8080-exec-8] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:32:14,466 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 10:32:14,485 INFO  [http-nio-8080-exec-10] ProjectController : Finding projects.
+2020-12-06 10:32:14,485 WARN  [http-nio-8080-exec-10] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:32:43,472 INFO  [http-nio-8080-exec-2] ProjectController : Finding projects.
+2020-12-06 10:32:43,472 WARN  [http-nio-8080-exec-2] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:32:43,473 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-06 10:32:54,785 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 10:32:54,790 INFO  [http-nio-8080-exec-4] ProjectController : Finding projects.
+2020-12-06 10:32:54,791 WARN  [http-nio-8080-exec-4] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:33:49,784 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 10:33:49,795 INFO  [http-nio-8080-exec-6] ProjectController : Finding projects.
+2020-12-06 10:33:49,795 WARN  [http-nio-8080-exec-6] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:37:20,670 INFO  [http-nio-8080-exec-10] ProjectController : Finding projects.
+2020-12-06 10:37:20,670 WARN  [http-nio-8080-exec-10] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:37:20,670 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 10:38:08,337 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 10:38:08,346 INFO  [http-nio-8080-exec-9] ProjectController : Finding projects.
+2020-12-06 10:38:08,346 WARN  [http-nio-8080-exec-9] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:47:41,270 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 10:47:41,271 INFO  [http-nio-8080-exec-8] ProjectController : Finding projects.
+2020-12-06 10:47:41,274 WARN  [http-nio-8080-exec-8] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:48:00,299 INFO  [http-nio-8080-exec-10] ProjectController : Finding projects.
+2020-12-06 10:48:00,299 WARN  [http-nio-8080-exec-10] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:48:00,300 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 10:55:45,108 INFO  [http-nio-8080-exec-1] ProjectController : Finding projects.
+2020-12-06 10:55:45,108 WARN  [http-nio-8080-exec-1] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:55:45,114 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 10:56:32,327 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 10:56:32,333 INFO  [http-nio-8080-exec-6] ProjectController : Finding projects.
+2020-12-06 10:56:32,333 WARN  [http-nio-8080-exec-6] ProjectController : The list can return null if no projects are available!
+2020-12-06 10:57:03,110 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 10:57:03,122 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 11:01:15,591 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 11:01:15,594 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-06 11:01:15,674 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 11:01:15,722 INFO  [http-nio-8080-exec-3] ProjectController : finding project of id 1
+2020-12-06 11:01:40,131 INFO  [http-nio-8080-exec-6] UserController : Get user data by username username
+2020-12-06 11:01:40,138 INFO  [http-nio-8080-exec-8] ProjectController : finding project of id 1
+2020-12-06 11:02:35,920 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 11:02:35,922 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 11:05:11,363 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 11:05:11,364 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 11:06:17,582 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 11:06:17,582 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:06:47,952 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 11:06:47,955 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 11:09:30,610 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-06 11:09:30,612 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 11:09:34,659 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 11:09:34,668 INFO  [http-nio-8080-exec-3] ProjectController : finding project of id 1
+2020-12-06 11:11:49,082 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 11:11:49,085 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 11:11:49,098 INFO  [http-nio-8080-exec-7] CategoryController : Finding categories.
+2020-12-06 11:11:49,099 WARN  [http-nio-8080-exec-7] CategoryController : The list can return null if no items are available!
+2020-12-06 11:11:57,746 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 11:11:57,750 INFO  [http-nio-8080-exec-1] ProjectController : finding project of id 1
+2020-12-06 11:11:57,752 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 11:11:57,752 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 11:12:12,649 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 11:12:12,663 INFO  [http-nio-8080-exec-8] ProjectController : finding project of id 1
+2020-12-06 11:12:12,668 INFO  [http-nio-8080-exec-6] CategoryController : Finding categories.
+2020-12-06 11:12:12,668 WARN  [http-nio-8080-exec-6] CategoryController : The list can return null if no items are available!
+2020-12-06 11:19:35,482 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 11:19:35,480 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 11:19:35,492 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 11:19:35,492 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 11:30:26,628 INFO  [http-nio-8080-exec-6] UserController : Get user data by username username
+2020-12-06 11:30:26,638 INFO  [http-nio-8080-exec-2] ProjectController : finding project of id 1
+2020-12-06 11:30:26,645 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-06 11:30:26,645 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-06 11:30:26,649 INFO  [http-nio-8080-exec-7] ItemController : Finding items.
+2020-12-06 11:30:26,649 WARN  [http-nio-8080-exec-7] ItemController : The list can return null if no items are available!
+2020-12-06 11:31:59,037 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:31:59,040 INFO  [http-nio-8080-exec-2] CategoryController : Finding categories.
+2020-12-06 11:31:59,040 WARN  [http-nio-8080-exec-2] CategoryController : The list can return null if no items are available!
+2020-12-06 11:31:59,040 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 11:31:59,046 INFO  [http-nio-8080-exec-6] ItemController : Finding items.
+2020-12-06 11:31:59,047 WARN  [http-nio-8080-exec-6] ItemController : The list can return null if no items are available!
+2020-12-06 11:33:27,473 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 11:33:27,482 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 11:33:27,489 INFO  [http-nio-8080-exec-8] ItemController : Finding items.
+2020-12-06 11:33:27,489 WARN  [http-nio-8080-exec-8] ItemController : The list can return null if no items are available!
+2020-12-06 11:33:27,491 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 11:33:27,491 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 11:34:35,107 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 11:34:35,114 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 11:34:35,125 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 11:34:35,125 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 11:34:35,130 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 11:34:35,131 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 11:34:54,923 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 11:34:54,923 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:34:54,926 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 11:34:54,927 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 11:34:54,931 INFO  [http-nio-8080-exec-6] CategoryController : Finding categories.
+2020-12-06 11:34:54,931 WARN  [http-nio-8080-exec-6] CategoryController : The list can return null if no items are available!
+2020-12-06 11:38:27,287 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 11:38:27,290 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-06 11:38:27,291 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-06 11:38:27,299 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 11:38:27,309 INFO  [http-nio-8080-exec-8] ItemController : Finding items.
+2020-12-06 11:38:27,309 WARN  [http-nio-8080-exec-8] ItemController : The list can return null if no items are available!
+2020-12-06 11:40:35,962 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 11:40:35,969 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 11:40:35,970 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 11:40:35,971 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 11:40:35,974 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 11:40:35,974 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 11:40:43,195 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:40:43,200 INFO  [http-nio-8080-exec-5] ProjectController : finding project of id 1
+2020-12-06 11:40:43,211 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 11:40:43,211 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 11:40:43,212 INFO  [http-nio-8080-exec-10] ItemController : Finding items.
+2020-12-06 11:40:43,213 WARN  [http-nio-8080-exec-10] ItemController : The list can return null if no items are available!
+2020-12-06 11:41:47,487 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 11:41:47,494 INFO  [http-nio-8080-exec-3] ProjectController : finding project of id 1
+2020-12-06 11:41:47,495 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-06 11:41:47,498 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-06 11:41:47,496 INFO  [http-nio-8080-exec-8] ItemController : Finding items.
+2020-12-06 11:41:47,499 WARN  [http-nio-8080-exec-8] ItemController : The list can return null if no items are available!
+2020-12-06 11:42:38,420 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 11:42:38,423 INFO  [http-nio-8080-exec-7] CategoryController : Finding categories.
+2020-12-06 11:42:38,423 WARN  [http-nio-8080-exec-7] CategoryController : The list can return null if no items are available!
+2020-12-06 11:42:38,427 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 11:42:38,434 INFO  [http-nio-8080-exec-2] ItemController : Finding items.
+2020-12-06 11:42:38,434 WARN  [http-nio-8080-exec-2] ItemController : The list can return null if no items are available!
+2020-12-06 11:42:59,274 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 11:42:59,277 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 11:42:59,278 INFO  [http-nio-8080-exec-3] CategoryController : Finding categories.
+2020-12-06 11:42:59,278 WARN  [http-nio-8080-exec-3] CategoryController : The list can return null if no items are available!
+2020-12-06 11:42:59,277 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 11:42:59,279 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 11:43:32,315 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:43:32,319 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 11:43:32,330 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 11:43:32,334 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 11:43:32,333 INFO  [http-nio-8080-exec-2] ItemController : Finding items.
+2020-12-06 11:43:32,334 WARN  [http-nio-8080-exec-2] ItemController : The list can return null if no items are available!
+2020-12-06 11:44:10,379 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 11:44:10,392 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 11:44:10,410 INFO  [http-nio-8080-exec-1] ItemController : Finding items.
+2020-12-06 11:44:10,410 WARN  [http-nio-8080-exec-1] ItemController : The list can return null if no items are available!
+2020-12-06 11:44:10,412 INFO  [http-nio-8080-exec-6] CategoryController : Finding categories.
+2020-12-06 11:44:10,413 WARN  [http-nio-8080-exec-6] CategoryController : The list can return null if no items are available!
+2020-12-06 11:45:02,529 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 11:45:02,543 INFO  [http-nio-8080-exec-3] ProjectController : finding project of id 1
+2020-12-06 11:45:02,548 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 11:45:02,548 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 11:45:02,560 INFO  [http-nio-8080-exec-2] ItemController : Finding items.
+2020-12-06 11:45:02,560 WARN  [http-nio-8080-exec-2] ItemController : The list can return null if no items are available!
+2020-12-06 11:45:33,058 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:45:33,060 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 11:45:33,062 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 11:45:33,062 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 11:45:33,077 INFO  [http-nio-8080-exec-7] ItemController : Finding items.
+2020-12-06 11:45:33,077 WARN  [http-nio-8080-exec-7] ItemController : The list can return null if no items are available!
+2020-12-06 11:45:38,654 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 11:45:38,654 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 11:45:38,660 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-06 11:45:38,661 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-06 11:45:38,663 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 11:45:38,666 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 11:45:42,711 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 11:45:42,732 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 11:45:42,747 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 11:45:42,747 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 11:45:42,761 INFO  [http-nio-8080-exec-9] ItemController : Finding items.
+2020-12-06 11:45:42,762 WARN  [http-nio-8080-exec-9] ItemController : The list can return null if no items are available!
+2020-12-06 11:46:01,558 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 11:46:01,562 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 11:46:01,564 INFO  [http-nio-8080-exec-8] CategoryController : Finding categories.
+2020-12-06 11:46:01,565 WARN  [http-nio-8080-exec-8] CategoryController : The list can return null if no items are available!
+2020-12-06 11:46:01,577 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 11:46:01,579 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 11:46:26,086 INFO  [http-nio-8080-exec-6] UserController : Get user data by username username
+2020-12-06 11:46:26,086 INFO  [http-nio-8080-exec-5] ProjectController : finding project of id 1
+2020-12-06 11:46:26,094 INFO  [http-nio-8080-exec-2] ItemController : Finding items.
+2020-12-06 11:46:26,094 WARN  [http-nio-8080-exec-2] ItemController : The list can return null if no items are available!
+2020-12-06 11:46:26,096 INFO  [http-nio-8080-exec-1] CategoryController : Finding categories.
+2020-12-06 11:46:26,097 WARN  [http-nio-8080-exec-1] CategoryController : The list can return null if no items are available!
+2020-12-06 11:46:31,774 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 11:46:31,791 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 11:46:31,794 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 11:46:31,794 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 11:46:31,820 INFO  [http-nio-8080-exec-7] ItemController : Finding items.
+2020-12-06 11:46:31,820 WARN  [http-nio-8080-exec-7] ItemController : The list can return null if no items are available!
+2020-12-06 11:46:48,649 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 11:46:48,650 INFO  [http-nio-8080-exec-8] ProjectController : finding project of id 1
+2020-12-06 11:46:48,657 INFO  [http-nio-8080-exec-6] CategoryController : Finding categories.
+2020-12-06 11:46:48,657 WARN  [http-nio-8080-exec-6] CategoryController : The list can return null if no items are available!
+2020-12-06 11:46:48,675 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 11:46:48,675 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 11:47:21,842 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 11:47:21,845 INFO  [http-nio-8080-exec-1] ProjectController : finding project of id 1
+2020-12-06 11:47:21,849 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 11:47:21,849 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 11:47:21,849 INFO  [http-nio-8080-exec-9] ItemController : Finding items.
+2020-12-06 11:47:21,849 WARN  [http-nio-8080-exec-9] ItemController : The list can return null if no items are available!
+2020-12-06 11:48:01,458 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 11:48:01,462 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:48:01,477 INFO  [http-nio-8080-exec-6] CategoryController : Finding categories.
+2020-12-06 11:48:01,477 WARN  [http-nio-8080-exec-6] CategoryController : The list can return null if no items are available!
+2020-12-06 11:48:01,492 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 11:48:01,492 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 11:48:51,958 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 11:48:51,963 INFO  [http-nio-8080-exec-1] ProjectController : finding project of id 1
+2020-12-06 11:48:51,972 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 11:48:51,973 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 11:48:51,975 INFO  [http-nio-8080-exec-2] ItemController : Finding items.
+2020-12-06 11:48:51,975 WARN  [http-nio-8080-exec-2] ItemController : The list can return null if no items are available!
+2020-12-06 11:49:27,086 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 11:49:27,086 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 11:49:27,090 INFO  [http-nio-8080-exec-7] CategoryController : Finding categories.
+2020-12-06 11:49:27,090 WARN  [http-nio-8080-exec-7] CategoryController : The list can return null if no items are available!
+2020-12-06 11:49:27,102 INFO  [http-nio-8080-exec-8] ItemController : Finding items.
+2020-12-06 11:49:27,102 WARN  [http-nio-8080-exec-8] ItemController : The list can return null if no items are available!
+2020-12-06 11:51:31,741 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 11:51:31,760 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 11:51:31,766 INFO  [http-nio-8080-exec-10] ItemController : Finding items.
+2020-12-06 11:51:31,766 WARN  [http-nio-8080-exec-10] ItemController : The list can return null if no items are available!
+2020-12-06 11:51:31,767 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 11:51:31,767 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 11:52:11,873 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 11:52:11,876 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 11:52:11,876 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 11:52:11,877 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 11:52:11,879 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-06 11:52:11,879 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-06 11:52:41,612 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 11:52:41,623 INFO  [http-nio-8080-exec-10] ItemController : Finding items.
+2020-12-06 11:52:41,623 WARN  [http-nio-8080-exec-10] ItemController : The list can return null if no items are available!
+2020-12-06 11:52:41,625 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 11:52:41,627 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 11:52:41,627 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 11:53:11,125 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 11:53:11,127 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 11:53:11,129 INFO  [http-nio-8080-exec-8] CategoryController : Finding categories.
+2020-12-06 11:53:11,129 WARN  [http-nio-8080-exec-8] CategoryController : The list can return null if no items are available!
+2020-12-06 11:53:11,130 INFO  [http-nio-8080-exec-7] ItemController : Finding items.
+2020-12-06 11:53:11,130 WARN  [http-nio-8080-exec-7] ItemController : The list can return null if no items are available!
+2020-12-06 12:24:24,033 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 12:24:24,049 INFO  [http-nio-8080-exec-8] ItemController : Finding items.
+2020-12-06 12:24:24,049 WARN  [http-nio-8080-exec-8] ItemController : The list can return null if no items are available!
+2020-12-06 12:24:24,051 INFO  [http-nio-8080-exec-2] CategoryController : Finding categories.
+2020-12-06 12:24:24,051 WARN  [http-nio-8080-exec-2] CategoryController : The list can return null if no items are available!
+2020-12-06 12:24:24,052 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 12:25:40,007 INFO  [http-nio-8080-exec-6] UserController : Get user data by username username
+2020-12-06 12:25:40,028 INFO  [http-nio-8080-exec-8] ItemController : Finding items.
+2020-12-06 12:25:40,028 WARN  [http-nio-8080-exec-8] ItemController : The list can return null if no items are available!
+2020-12-06 12:25:40,029 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 12:25:40,031 INFO  [http-nio-8080-exec-7] CategoryController : Finding categories.
+2020-12-06 12:25:40,032 WARN  [http-nio-8080-exec-7] CategoryController : The list can return null if no items are available!
+2020-12-06 12:26:28,325 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 12:26:28,329 INFO  [http-nio-8080-exec-2] ProjectController : finding project of id 1
+2020-12-06 12:26:28,333 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 12:26:28,333 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 12:26:28,334 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 12:26:28,334 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 12:26:54,423 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 12:26:54,423 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 12:26:54,428 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 12:26:54,429 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 12:26:54,449 INFO  [http-nio-8080-exec-6] ItemController : Finding items.
+2020-12-06 12:26:54,450 WARN  [http-nio-8080-exec-6] ItemController : The list can return null if no items are available!
+2020-12-06 12:29:42,131 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 12:29:42,138 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 12:29:42,138 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 12:29:42,139 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 12:29:42,140 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 12:29:42,139 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 12:33:09,727 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 12:33:09,729 INFO  [http-nio-8080-exec-2] ProjectController : finding project of id 1
+2020-12-06 12:33:09,737 INFO  [http-nio-8080-exec-3] CategoryController : Finding categories.
+2020-12-06 12:33:09,737 WARN  [http-nio-8080-exec-3] CategoryController : The list can return null if no items are available!
+2020-12-06 12:33:09,742 INFO  [http-nio-8080-exec-10] ItemController : Finding items.
+2020-12-06 12:33:09,743 WARN  [http-nio-8080-exec-10] ItemController : The list can return null if no items are available!
+2020-12-06 12:33:23,923 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-06 12:33:23,930 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 12:33:23,931 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 12:33:23,931 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 12:33:23,937 INFO  [http-nio-8080-exec-8] ItemController : Finding items.
+2020-12-06 12:33:23,938 WARN  [http-nio-8080-exec-8] ItemController : The list can return null if no items are available!
+2020-12-06 12:35:12,432 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 12:35:12,435 INFO  [http-nio-8080-exec-3] ProjectController : finding project of id 1
+2020-12-06 12:35:12,441 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 12:35:12,442 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 12:35:12,445 INFO  [http-nio-8080-exec-6] ItemController : Finding items.
+2020-12-06 12:35:12,445 WARN  [http-nio-8080-exec-6] ItemController : The list can return null if no items are available!
+2020-12-06 12:40:18,300 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 12:40:18,302 INFO  [http-nio-8080-exec-1] ProjectController : finding project of id 1
+2020-12-06 12:40:18,317 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 12:40:18,317 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 12:40:18,320 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 12:40:18,321 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 12:46:44,135 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 12:46:44,144 INFO  [http-nio-8080-exec-5] ProjectController : Finding projects.
+2020-12-06 12:46:44,144 WARN  [http-nio-8080-exec-5] ProjectController : The list can return null if no projects are available!
+2020-12-06 12:46:45,920 INFO  [http-nio-8080-exec-3] ProjectController : finding project of id 1
+2020-12-06 12:46:45,921 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 12:46:45,943 INFO  [http-nio-8080-exec-2] ItemController : Finding items.
+2020-12-06 12:46:45,943 WARN  [http-nio-8080-exec-2] ItemController : The list can return null if no items are available!
+2020-12-06 12:46:45,945 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 12:46:45,945 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 12:46:48,486 INFO  [http-nio-8080-exec-6] UserController : Get user data by username username
+2020-12-06 12:46:48,492 INFO  [http-nio-8080-exec-9] ProjectController : Finding projects.
+2020-12-06 12:46:48,492 WARN  [http-nio-8080-exec-9] ProjectController : The list can return null if no projects are available!
+2020-12-06 12:46:50,238 INFO  [http-nio-8080-exec-7] CategoryController : Finding categories.
+2020-12-06 12:46:50,238 WARN  [http-nio-8080-exec-7] CategoryController : The list can return null if no items are available!
+2020-12-06 12:46:50,239 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 12:46:50,241 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 12:46:50,249 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 12:46:50,250 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 12:47:07,435 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 12:47:07,443 INFO  [http-nio-8080-exec-2] CategoryController : Finding categories.
+2020-12-06 12:47:07,443 WARN  [http-nio-8080-exec-2] CategoryController : The list can return null if no items are available!
+2020-12-06 12:47:07,443 INFO  [http-nio-8080-exec-1] ProjectController : finding project of id 1
+2020-12-06 12:47:07,446 INFO  [http-nio-8080-exec-10] ItemController : Finding items.
+2020-12-06 12:47:07,446 WARN  [http-nio-8080-exec-10] ItemController : The list can return null if no items are available!
+2020-12-06 12:47:59,108 INFO  [http-nio-8080-exec-6] UserController : Get user data by username username
+2020-12-06 12:47:59,110 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 12:47:59,117 INFO  [http-nio-8080-exec-8] CategoryController : Finding categories.
+2020-12-06 12:47:59,117 WARN  [http-nio-8080-exec-8] CategoryController : The list can return null if no items are available!
+2020-12-06 12:47:59,118 INFO  [http-nio-8080-exec-4] ItemController : Finding items.
+2020-12-06 12:47:59,119 WARN  [http-nio-8080-exec-4] ItemController : The list can return null if no items are available!
+2020-12-06 12:48:01,254 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 12:48:01,255 INFO  [http-nio-8080-exec-5] ProjectController : finding project of id 1
+2020-12-06 12:48:01,272 INFO  [http-nio-8080-exec-1] CategoryController : Finding categories.
+2020-12-06 12:48:01,272 WARN  [http-nio-8080-exec-1] CategoryController : The list can return null if no items are available!
+2020-12-06 12:48:01,275 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 12:48:01,275 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 12:48:50,163 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 12:48:50,175 INFO  [http-nio-8080-exec-6] ItemController : Finding items.
+2020-12-06 12:48:50,175 WARN  [http-nio-8080-exec-6] ItemController : The list can return null if no items are available!
+2020-12-06 12:48:50,175 INFO  [http-nio-8080-exec-9] CategoryController : Finding categories.
+2020-12-06 12:48:50,175 WARN  [http-nio-8080-exec-9] CategoryController : The list can return null if no items are available!
+2020-12-06 12:48:50,175 INFO  [http-nio-8080-exec-4] ProjectController : finding project of id 1
+2020-12-06 12:49:01,288 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 12:49:01,288 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 12:49:01,291 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-06 12:49:01,291 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-06 12:49:01,302 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 12:49:01,302 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 12:49:05,956 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 12:49:05,960 INFO  [http-nio-8080-exec-6] CategoryController : Finding categories.
+2020-12-06 12:49:05,960 WARN  [http-nio-8080-exec-6] CategoryController : The list can return null if no items are available!
+2020-12-06 12:49:05,962 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 12:49:05,988 INFO  [http-nio-8080-exec-4] ItemController : Finding items.
+2020-12-06 12:49:05,988 WARN  [http-nio-8080-exec-4] ItemController : The list can return null if no items are available!
+2020-12-06 12:49:18,429 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 12:49:18,433 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 12:49:18,438 INFO  [http-nio-8080-exec-7] CategoryController : Finding categories.
+2020-12-06 12:49:18,438 WARN  [http-nio-8080-exec-7] CategoryController : The list can return null if no items are available!
+2020-12-06 12:49:18,440 INFO  [http-nio-8080-exec-3] ItemController : Finding items.
+2020-12-06 12:49:18,440 WARN  [http-nio-8080-exec-3] ItemController : The list can return null if no items are available!
+2020-12-06 12:49:35,703 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 12:49:35,705 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 12:49:35,705 INFO  [http-nio-8080-exec-8] ProjectController : finding project of id 1
+2020-12-06 12:49:35,705 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 12:49:35,722 INFO  [http-nio-8080-exec-1] ItemController : Finding items.
+2020-12-06 12:49:35,722 WARN  [http-nio-8080-exec-1] ItemController : The list can return null if no items are available!
+2020-12-06 12:51:33,186 INFO  [http-nio-8080-exec-7] UserController : Get user data by username username
+2020-12-06 12:51:33,187 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 1
+2020-12-06 12:51:33,193 INFO  [http-nio-8080-exec-8] CategoryController : Finding categories.
+2020-12-06 12:51:33,193 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 12:51:33,193 WARN  [http-nio-8080-exec-8] CategoryController : The list can return null if no items are available!
+2020-12-06 12:51:33,193 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 12:51:50,516 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 12:51:50,519 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-06 12:51:50,522 INFO  [http-nio-8080-exec-4] ItemController : Finding items.
+2020-12-06 12:51:50,523 WARN  [http-nio-8080-exec-4] ItemController : The list can return null if no items are available!
+2020-12-06 12:51:50,522 INFO  [http-nio-8080-exec-6] CategoryController : Finding categories.
+2020-12-06 12:51:50,523 WARN  [http-nio-8080-exec-6] CategoryController : The list can return null if no items are available!
+2020-12-06 12:52:10,001 INFO  [http-nio-8080-exec-3] UserController : Get user data by username username
+2020-12-06 12:52:10,002 INFO  [http-nio-8080-exec-2] ProjectController : finding project of id 1
+2020-12-06 12:52:10,008 INFO  [http-nio-8080-exec-7] CategoryController : Finding categories.
+2020-12-06 12:52:10,009 WARN  [http-nio-8080-exec-7] CategoryController : The list can return null if no items are available!
+2020-12-06 12:52:10,010 INFO  [http-nio-8080-exec-9] ItemController : Finding items.
+2020-12-06 12:52:10,010 WARN  [http-nio-8080-exec-9] ItemController : The list can return null if no items are available!
+2020-12-06 12:52:12,984 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-06 12:52:12,987 INFO  [http-nio-8080-exec-8] ProjectController : finding project of id 1
+2020-12-06 12:52:12,998 INFO  [http-nio-8080-exec-10] CategoryController : Finding categories.
+2020-12-06 12:52:12,998 WARN  [http-nio-8080-exec-10] CategoryController : The list can return null if no items are available!
+2020-12-06 12:52:13,002 INFO  [http-nio-8080-exec-4] ItemController : Finding items.
+2020-12-06 12:52:13,002 WARN  [http-nio-8080-exec-4] ItemController : The list can return null if no items are available!
+2020-12-06 12:56:02,184 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 12:56:02,184 INFO  [http-nio-8080-exec-2] UserController : Get user data by username username
+2020-12-06 12:56:02,195 INFO  [http-nio-8080-exec-8] CategoryController : Finding categories.
+2020-12-06 12:56:02,195 WARN  [http-nio-8080-exec-8] CategoryController : The list can return null if no items are available!
+2020-12-06 12:56:02,213 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 12:56:02,214 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 12:56:14,430 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-06 12:56:14,439 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 1
+2020-12-06 12:56:14,441 INFO  [http-nio-8080-exec-1] CategoryController : Finding categories.
+2020-12-06 12:56:14,441 WARN  [http-nio-8080-exec-1] CategoryController : The list can return null if no items are available!
+2020-12-06 12:56:14,442 INFO  [http-nio-8080-exec-6] ItemController : Finding items.
+2020-12-06 12:56:14,442 WARN  [http-nio-8080-exec-6] ItemController : The list can return null if no items are available!
+2020-12-06 12:56:14,447 INFO  [http-nio-8080-exec-3] InvoiceController : Finding invoices.
+2020-12-06 12:56:14,447 WARN  [http-nio-8080-exec-3] InvoiceController : The list can return null if no invoices are available!
+2020-12-06 13:04:36,976 INFO  [http-nio-8080-exec-10] UserController : Get user data by username username
+2020-12-06 13:04:36,978 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 13:04:36,981 INFO  [http-nio-8080-exec-1] CategoryController : Finding categories.
+2020-12-06 13:04:36,981 WARN  [http-nio-8080-exec-1] CategoryController : The list can return null if no items are available!
+2020-12-06 13:04:37,001 INFO  [http-nio-8080-exec-4] ItemController : Finding items.
+2020-12-06 13:04:37,001 WARN  [http-nio-8080-exec-4] ItemController : The list can return null if no items are available!
+2020-12-06 13:04:37,004 INFO  [http-nio-8080-exec-3] InvoiceController : Finding invoices.
+2020-12-06 13:04:37,004 WARN  [http-nio-8080-exec-3] InvoiceController : The list can return null if no invoices are available!
+2020-12-06 13:08:23,201 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-06 13:08:23,205 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 13:08:23,206 INFO  [http-nio-8080-exec-1] CategoryController : Finding categories.
+2020-12-06 13:08:23,206 WARN  [http-nio-8080-exec-1] CategoryController : The list can return null if no items are available!
+2020-12-06 13:08:23,221 INFO  [http-nio-8080-exec-10] InvoiceController : Finding invoices.
+2020-12-06 13:08:23,222 WARN  [http-nio-8080-exec-10] InvoiceController : The list can return null if no invoices are available!
+2020-12-06 13:08:23,225 INFO  [http-nio-8080-exec-4] ItemController : Finding items.
+2020-12-06 13:08:23,225 WARN  [http-nio-8080-exec-4] ItemController : The list can return null if no items are available!
+2020-12-06 13:09:25,880 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-06 13:09:25,883 INFO  [http-nio-8080-exec-6] ProjectController : finding project of id 1
+2020-12-06 13:09:25,890 INFO  [http-nio-8080-exec-1] ItemController : Finding items.
+2020-12-06 13:09:25,890 INFO  [http-nio-8080-exec-4] CategoryController : Finding categories.
+2020-12-06 13:09:25,891 WARN  [http-nio-8080-exec-1] ItemController : The list can return null if no items are available!
+2020-12-06 13:09:25,891 WARN  [http-nio-8080-exec-4] CategoryController : The list can return null if no items are available!
+2020-12-06 13:09:25,910 INFO  [http-nio-8080-exec-10] InvoiceController : Finding invoices.
+2020-12-06 13:09:25,910 WARN  [http-nio-8080-exec-10] InvoiceController : The list can return null if no invoices are available!
+2020-12-06 13:09:56,439 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-06 13:09:56,451 INFO  [http-nio-8080-exec-2] InvoiceController : Finding invoices.
+2020-12-06 13:09:56,451 WARN  [http-nio-8080-exec-2] InvoiceController : The list can return null if no invoices are available!
+2020-12-06 13:09:56,453 INFO  [http-nio-8080-exec-3] CategoryController : Finding categories.
+2020-12-06 13:09:56,454 WARN  [http-nio-8080-exec-3] CategoryController : The list can return null if no items are available!
+2020-12-06 13:09:56,454 INFO  [http-nio-8080-exec-5] ProjectController : finding project of id 1
+2020-12-06 13:09:56,462 INFO  [http-nio-8080-exec-7] ItemController : Finding items.
+2020-12-06 13:09:56,462 WARN  [http-nio-8080-exec-7] ItemController : The list can return null if no items are available!
+2020-12-06 13:12:24,887 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-06 13:12:24,899 INFO  [http-nio-8080-exec-2] CategoryController : Finding categories.
+2020-12-06 13:12:24,899 WARN  [http-nio-8080-exec-2] CategoryController : The list can return null if no items are available!
+2020-12-06 13:12:24,899 INFO  [http-nio-8080-exec-7] ProjectController : finding project of id 1
+2020-12-06 13:12:24,908 INFO  [http-nio-8080-exec-5] ItemController : Finding items.
+2020-12-06 13:12:24,908 WARN  [http-nio-8080-exec-5] ItemController : The list can return null if no items are available!
+2020-12-06 13:12:24,915 INFO  [http-nio-8080-exec-3] InvoiceController : Finding invoices.
+2020-12-06 13:12:24,915 WARN  [http-nio-8080-exec-3] InvoiceController : The list can return null if no invoices are available!
