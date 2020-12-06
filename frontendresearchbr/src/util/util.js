@@ -20,10 +20,10 @@ export default class Util {
     }
 
     if( part1.length > 3 ) {
-      part1 = part1.split( /(?=(?:...)*$)/ ).join( '.' );
+      part1 = part1.split( /(?=(?:...)*$)/ ).join( ',' );
     }
     
-    returnValue = `${ returnValue }R$ ${ part1 },${ part2 }`;
+    returnValue = `${ returnValue }R$ ${ part1 }.${ part2 }`;
 
     return returnValue;
   }

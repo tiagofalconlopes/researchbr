@@ -10,7 +10,7 @@ const InputTextUi = ( { typeInput, classCss, methodBlur, placeholder, requiredFi
 
 InputTextUi.propTypes = {
   typeInput: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   methodBlur: PropTypes.func,
   methodChange: PropTypes.func,
   classCss: PropTypes.string,

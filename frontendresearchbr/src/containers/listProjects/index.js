@@ -50,7 +50,7 @@ export default class ListProjects extends Component {
           {
             role === 'ROLE_PRINCIPAL' ? (
               <div className='items'>
-                <ButtonUi classCss='items-btn' name='Register new project' />
+                <ButtonUi classCss='items-btn' name='Register new project' link='/newProject' />
               </div>
             ) : null
           }
@@ -58,10 +58,10 @@ export default class ListProjects extends Component {
               user.projects !== 'undefined' && user.projects.length > 0 ? (
                 projects.map( prj => {
                   return prj.users.map( usr => {
-                    return user.id === usr.id ? 
+                    return user.id === usr.id || user.id === usr ? 
                       (
                         <Link className='prj-link' to={ `/project/${ prj.id }` }>
-                          <div key={ usr.id } className='items items-list'>
+                          <div key={ user.id } className='items items-list'>
                             <ul className='ul-std'>
                               <li className='li-project li-title'>
                                 { prj.title }

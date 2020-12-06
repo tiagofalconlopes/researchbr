@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from  'react-router-dom';
 import { PrivateRoute } from './components/privateRoute';
-import { DetailsProjects, FormUser, ListProjects, Login } from './containers';
+import { DetailsProjects, FormProject, FormUser, ListProjects, Login } from './containers';
 
 
 export default class App extends Component {
@@ -14,6 +14,7 @@ export default class App extends Component {
           <Route path='/newUser' exact component={ FormUser } />
           <PrivateRoute path = '/' exact component = { ListProjects } />
           <PrivateRoute path='/project/:id' exact component={ DetailsProjects } />
+          <PrivateRoute path='/newProject' exact component={ FormProject } />
         </Router>
       </div>
     )

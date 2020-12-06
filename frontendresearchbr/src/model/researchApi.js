@@ -88,6 +88,20 @@ export default class ResearchApi {
     })
   }
 
+  async createANewProject( { usersIds, code, agency, title, description, total, outgoing, start, end } ) {
+    return await axios.post(`${ url }projects/new`, { usersIds: usersIds, code: code, agency: agency, title: title, description: description, total: total, outgoing: outgoing, start: start, end: end }, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      } 
+    } )
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
   async createANewUser( { username, email, password, cpf, roleName } ) {
     return await axios.post(`${ url }users/new`, { username: username, email: email, password: password, cpf: cpf, roleName: roleName } )
     .then( res  => {

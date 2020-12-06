@@ -63,10 +63,10 @@ export default class DetailsProjects extends Component {
             role === 'ROLE_PRINCIPAL' ? (
               <React.Fragment>
                 <div className='items'>
-                  <ButtonUi classCss='items-btn' name='Add a invoice' />
+                  <ButtonUi classCss='items-btn' name='Add an invoice' />
                 </div>
                 <div className='items'>
-                  <ButtonUi classCss='items-btn' name='Add new item to a invoice' />
+                  <ButtonUi classCss='items-btn' name='Add new item to an invoice' />
                 </div>
               </React.Fragment>
             ) : null

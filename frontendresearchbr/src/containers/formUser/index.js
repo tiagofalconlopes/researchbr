@@ -21,7 +21,6 @@ function FormUser() {
   const handler = async e => {
     e.preventDefault();
     try {
-      console.log(username, cpf, email)
       if( validatePassword() && username.length > 0 && validateCpf() && email.length > 0 && roleName.length > 0 ) {
         document.getElementById('hide-title1').style.visibility = 'hidden';
         document.getElementById('hide-title3').style.visibility = 'hidden';
