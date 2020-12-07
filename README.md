@@ -13,9 +13,9 @@ This software aims to help scientific researches working in brasilian universiti
 
 ## Starting:
 Make sure you have a backendresearch empty database in your MySQL.<br>
-Change the username and password in the application.yaml file for the database access.<br>
 Clone the repository:<br>
 `git clone https://github.com/tiagofalconlopes/researchbr.git`<br>
+Change the username and password in the application.yaml file for the database access.<br>
 Start too run the back-end application:<br>
 `cd $PWD/backendresearchbr`<br>
 Build skipping the tests:<br>
