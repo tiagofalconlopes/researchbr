@@ -20,13 +20,12 @@ export default class DetailsProjects extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const projectId = this.props.match.params.id;
     const requests = [
       this.treatApiData.findUserData(),
       this.researchApi.findProjectById( projectId ),
       this.researchApi.findAllCategories(),
-      this.researchApi.findAllItems(),
     ];
 
     Promise.all( requests )
@@ -34,7 +33,6 @@ export default class DetailsProjects extends Component {
         let user = responses[ 0 ];
         let project = responses[ 1 ];
         let categories = responses[ 2 ];
-        let items = responses[ 3 ];
 
         if( project ) {
           let ids = project.invoices;
@@ -49,6 +47,29 @@ export default class DetailsProjects extends Component {
           });
           Promise.all( aux )
             .then( res => {
+              if( res ) {
+                let auxItems = [];
+                res.forEach(element => {
+                  let items = element.items;
+                  items.forEach( itm => {
+                    if(typeof itm === 'number' ) {
+                      auxItems.push(this.researchApi.findItemById( itm ) )
+                    }
+                    if(typeof itm === 'object' ) {
+                      auxItems.push(this.researchApi.findItemById( element.id ) )
+                    }
+                  })
+                });
+                Promise.all( auxItems )
+                  .then( res => {
+                    this.setState( state => {
+                      return {
+                        ...state,
+                        items: res,
+                      }
+                    })
+                  })
+              }
               this.setState( state => {
                 return {
                   ...state,
@@ -65,7 +86,6 @@ export default class DetailsProjects extends Component {
             project: project,
             role: this.treatApiData.findUserRole(),
             categories: categories,
-            items: items,
           }
         })
       })
@@ -93,6 +113,65 @@ export default class DetailsProjects extends Component {
     }
   }
 
+  saveToCSV( e ) {
+    e.preventDefault();
+    const { project, categories, items, invoices } = this.state;
+    let rows = [];
+    if( project ) {
+      rows.push( [ 'Title', project.title ] );
+      rows.push( [ 'Agency', project.agency ] );
+      rows.push( [ 'Project code', project.code ] );
+      rows.push( [ 'Start date', this.util.convertDate( project.start ) ] );
+      rows.push( [ 'End date', this.util.convertDate( project.end ) ] );
+      rows.push( [ 'Total funding', this.util.printBRL( project.total ) ] );
+      rows.push( [ 'Outgoing', this.util.printBRL( project.outgoing ) ] );
+      rows.push( [ 'Balance', this.util.printBRL( project.total - project.outgoing ) ] );
+    }
+    if( items && categories ) {
+      categories.forEach( category => {
+        rows.push( [ 'Item category', category.name ] );
+        project.invoices.forEach( invoice => {
+          items.forEach (item => {
+            if ( item.invoice.id === invoice ) {
+              if( category.items.length > 0 ) {
+                category.items.forEach(itm => {
+                  if( item.id === itm.id ||item.id === itm ) {
+                    rows.push( [ 'Item', item.name ] );
+                    rows.push( [ 'Value', this.util.printBRL(item.value) ] );
+                    rows.push( [ 'Quantity', item.quantity ] );
+                    rows.push( [ 'Invoice', item.invoice.code ] );
+                  }
+                } )
+              }
+            }
+          } )
+        } )
+      } )
+    }
+    if( invoices && project.invoices.length > 0 ) {
+      rows.push( [ 'Section', 'Invoices' ] );
+      project.invoices.forEach( inv => {
+        invoices.forEach( invoice => {
+          if( inv === invoice.id ){
+            rows.push( [ 'Invoice code', invoice.code ] );
+            rows.push( [ 'Value', this.util.printBRL( invoice.value ) ] );
+          }
+        } )
+      } )
+    }
+    
+    let csvContent = 'data:text/csv;charset=utf-8,' + rows.map( e => e.join(",") ).join("\n");
+
+    console.log(csvContent);
+    let encodedUri = encodeURI( csvContent );
+    let link = document.createElement( 'a' );
+    link.setAttribute( 'href', encodedUri);
+    link.setAttribute( 'download', `Project_${ project.title }.csv`);
+    document.body.appendChild(link);
+
+    link.click();
+  }
+
   render() {
     const { user, project, role, categories, items, invoices } = this.state;
 
@@ -100,7 +179,6 @@ export default class DetailsProjects extends Component {
       <React.Fragment>
         <HeaderIn />
         <div className='default-container'>
-          {console.log(invoices)}
           {
             role === 'ROLE_PRINCIPAL' ? (
               <React.Fragment>
@@ -108,7 +186,10 @@ export default class DetailsProjects extends Component {
                   <ButtonUi classCss='items-btn' name='Add an invoice' link={ `/newInvoice/${ this.props.match.params.id }` } />
                 </div>
                 <div className='items'>
-                  <ButtonUi classCss='items-btn' name='Add new item to an invoice' />
+                  <ButtonUi classCss='items-btn' name='Add new item to an invoice' link={ `/newItem/${ this.props.match.params.id }` } />
+                </div>
+                <div className='items'>
+                  <ButtonUi classCss='items-btn' name='Save to CSV' methodClick={ e => this.saveToCSV( e ) } />
                 </div>
               </React.Fragment>
             ) : null
@@ -154,7 +235,7 @@ export default class DetailsProjects extends Component {
                                   if ( item.invoice.id === invoice ) {
                                     if( category.items.length > 0 ) {
                                       return category.items.map(itm => {
-                                        if( item.id === itm.id ) {
+                                        if( item.id === itm.id ||item.id === itm ) {
                                           return (
                                             <div className='item-detail' key={ item.id }>
                                               <li className='item-detail-li'>

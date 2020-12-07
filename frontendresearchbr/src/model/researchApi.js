@@ -103,8 +103,36 @@ export default class ResearchApi {
     })
   }
 
+  async findItemById( id ) {
+    return await axios.get(`${ url }items/item/${ id }`, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      }
+    })
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
   async createANewProject( { usersIds, code, agency, title, description, total, outgoing, start, end } ) {
     return await axios.post(`${ url }projects/new`, { usersIds: usersIds, code: code, agency: agency, title: title, description: description, total: total, outgoing: outgoing, start: start, end: end }, {
+      headers: {
+        'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
+      } 
+    } )
+    .then( res  => {
+      return res.data;
+    })
+    .catch( error => {
+      console.error( error );
+    })
+  }
+
+  async createANewItem( { name, value, quantity, description, category, invoice } ) {
+    return await axios.post(`${ url }items/new`, { name: name, value: value, quantity: quantity, description: description, category: category, invoice: invoice }, {
       headers: {
         'Authorization': `Bearer ${ window.localStorage.getItem( 'access_token' ) }`
       } 
