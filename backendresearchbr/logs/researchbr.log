@@ -1396,3 +1396,39 @@ java.lang.RuntimeException: null
 2020-12-07 11:42:26,678 INFO  [http-nio-8080-exec-7] InvoiceController : finding invoice of id 14
 2020-12-07 11:42:26,691 INFO  [http-nio-8080-exec-2] InvoiceController : finding invoice of id 15
 2020-12-07 11:42:26,756 INFO  [http-nio-8080-exec-6] ItemController : finding item of id 3
+2020-12-07 11:46:55,083 INFO  [http-nio-8080-exec-1] UserController : Get user data by username username
+2020-12-07 11:46:55,084 INFO  [http-nio-8080-exec-10] ProjectController : finding project of id 3
+2020-12-07 11:46:55,096 INFO  [http-nio-8080-exec-3] CategoryController : Finding categories.
+2020-12-07 11:46:55,096 WARN  [http-nio-8080-exec-3] CategoryController : The list can return null if no items are available!
+2020-12-07 11:46:55,290 INFO  [http-nio-8080-exec-7] InvoiceController : finding invoice of id 13
+2020-12-07 11:46:55,294 INFO  [http-nio-8080-exec-4] InvoiceController : finding invoice of id 14
+2020-12-07 11:46:55,298 INFO  [http-nio-8080-exec-2] InvoiceController : finding invoice of id 15
+2020-12-07 11:46:55,370 INFO  [http-nio-8080-exec-6] ItemController : finding item of id 3
+2020-12-07 11:47:14,612 INFO  [http-nio-8080-exec-5] UserController : Get user data by username username
+2020-12-07 11:47:14,622 INFO  [http-nio-8080-exec-9] ProjectController : finding project of id 3
+2020-12-07 11:47:14,627 INFO  [http-nio-8080-exec-8] CategoryController : Finding categories.
+2020-12-07 11:47:14,627 WARN  [http-nio-8080-exec-8] CategoryController : The list can return null if no items are available!
+2020-12-07 11:47:14,739 INFO  [http-nio-8080-exec-10] InvoiceController : finding invoice of id 13
+2020-12-07 11:47:14,742 INFO  [http-nio-8080-exec-1] InvoiceController : finding invoice of id 14
+2020-12-07 11:47:14,750 INFO  [http-nio-8080-exec-3] InvoiceController : finding invoice of id 15
+2020-12-07 11:47:14,831 INFO  [http-nio-8080-exec-7] ItemController : finding item of id 3
+2020-12-07 11:47:27,203 INFO  [http-nio-8080-exec-4] UserController : Get user data by username username
+2020-12-07 11:47:27,208 INFO  [http-nio-8080-exec-6] ProjectController : Finding projects.
+2020-12-07 11:47:27,209 WARN  [http-nio-8080-exec-6] ProjectController : The list can return null if no projects are available!
+2020-12-07 11:47:28,092 INFO  [http-nio-8080-exec-9] UserController : Get user data by username username
+2020-12-07 11:47:28,104 INFO  [http-nio-8080-exec-8] ProjectController : finding project of id 3
+2020-12-07 11:47:28,108 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-07 11:47:28,109 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-07 11:47:28,154 INFO  [http-nio-8080-exec-10] InvoiceController : finding invoice of id 13
+2020-12-07 11:47:28,165 INFO  [http-nio-8080-exec-3] InvoiceController : finding invoice of id 14
+2020-12-07 11:47:28,167 INFO  [http-nio-8080-exec-1] InvoiceController : finding invoice of id 15
+2020-12-07 11:47:28,201 INFO  [http-nio-8080-exec-7] ItemController : finding item of id 3
+2020-12-07 11:48:11,197 INFO  [http-nio-8080-exec-2] ProjectController : finding project of id 3
+2020-12-07 11:48:11,221 INFO  [http-nio-8080-exec-4] InvoiceController : finding invoice of id 13
+2020-12-07 11:48:11,227 INFO  [http-nio-8080-exec-5] CategoryController : Finding categories.
+2020-12-07 11:48:11,227 WARN  [http-nio-8080-exec-5] CategoryController : The list can return null if no items are available!
+2020-12-07 11:48:11,229 INFO  [http-nio-8080-exec-9] InvoiceController : finding invoice of id 15
+2020-12-07 11:48:11,229 INFO  [http-nio-8080-exec-6] InvoiceController : finding invoice of id 14
+2020-12-07 11:48:14,064 INFO  [http-nio-8080-exec-8] UserController : Get user data by username username
+2020-12-07 11:48:14,066 INFO  [http-nio-8080-exec-3] ProjectController : Finding projects.
+2020-12-07 11:48:14,067 WARN  [http-nio-8080-exec-3] ProjectController : The list can return null if no projects are available!

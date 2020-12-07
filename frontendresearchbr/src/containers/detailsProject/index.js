@@ -162,7 +162,6 @@ export default class DetailsProjects extends Component {
     
     let csvContent = 'data:text/csv;charset=utf-8,' + rows.map( e => e.join(",") ).join("\n");
 
-    console.log(csvContent);
     let encodedUri = encodeURI( csvContent );
     let link = document.createElement( 'a' );
     link.setAttribute( 'href', encodedUri);

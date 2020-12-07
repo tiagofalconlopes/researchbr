@@ -86,15 +86,6 @@ function FormItem( props ) {
               <label className='items-label'>Item name</label>
               <InputTextUi placeholder='Name' typeInput='text' methodBlur={ e => setNameAndRequests( e ) } requiredField={ true } />
             </div>
-            {
-              invoiceList && categories && (
-                <div>
-                  {console.log(invoiceList)}
-                  {console.log(categories)}
-                </div>
-
-              )
-            }
             <div className='items'>
               <label  className='items-label'>Total value</label>
               <InputTextUi placeholder='Value ex.: 1295.05' typeInput='number' methodChange={ e => setValue( parseFloat( e.target.value ) ) } requiredField={ true } />
