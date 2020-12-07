@@ -4,7 +4,7 @@
 This software aims to help scientific researches working in brasilian universities in their reports to the national funding agencies.
 
 ## This system was built using:
-[IntelliJ idea community 2020.3](https://www.jetbrains.com/pt-br/idea/download/#section=linux);
+[IntelliJ idea community 2020.3](https://www.jetbrains.com/pt-br/idea/download/#section=linux);<br>
 [Java](https://www.java.com/pt-BR/download/help/java8_pt-br.html)  v. 1.8.0_275;
 [MySQL8](https://dev.mysql.com/);
 [React](https://pt-br.reactjs.org/);
