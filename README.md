@@ -20,7 +20,11 @@ Start too run the back-end application:<br>
 `cd $PWD/backendresearchbr`<br>
 Build skipping the tests:<br>
 `gradle build -x test`<br>
+Run the back-end:
+`java -jar build/libs/backendresearchbr-0.0.1-SNAPSHOT.jar`<br>
 Go to the frontendresearchbr directory:<br>
 `cd $PWD/frontendresearchbr`<br>
+Install dependency modules (commonly necessary in first use): <br>
+`npm install`<br>
 Start using npm:<br>
 `npm start`<br>
