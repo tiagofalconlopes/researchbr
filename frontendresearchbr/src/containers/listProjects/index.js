@@ -87,7 +87,7 @@ export default class ListProjects extends Component {
                       ) : null 
                   } )
                 } )
-              ) : <div><p>No projects for this user</p></div>
+              ) : <div className='items items-list'><p>No projects for this user</p></div>
           ) }
         </div>
       </React.Fragment>

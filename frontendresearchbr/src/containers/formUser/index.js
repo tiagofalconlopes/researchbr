@@ -22,6 +22,7 @@ function FormUser() {
     e.preventDefault();
     try {
       if( validatePassword() && username.length > 0 && validateCpf() && email.length > 0 && roleName.length > 0 ) {
+        console.log(username, email, password, cpf, roleName, confirmPassword)
         document.getElementById('hide-title1').style.visibility = 'hidden';
         document.getElementById('hide-title3').style.visibility = 'hidden';
         await reasearchApi.createANewUser( { username, email, password, cpf, roleName } );
