@@ -2,6 +2,7 @@
 
 ## Description
 This software aims to help scientific researches working in brasilian universities in their reports to the national funding agencies.
+This is an MVP version and improvements are still necessary. There are no warranties on its use.
 
 ## This system was built using:
 [IntelliJ idea community 2020.3](https://www.jetbrains.com/pt-br/idea/download/#section=linux);<br>
